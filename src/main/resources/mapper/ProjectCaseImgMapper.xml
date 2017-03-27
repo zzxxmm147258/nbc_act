@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nbcedu.cases.dao.ProjectCaseImgMapper" >
+  <resultMap id="BaseResultMap" type="com.nbcedu.cases.model.ProjectCaseImg" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="m_id" property="mId" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="attr" property="attr" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_ms" property="createMs" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_ms" property="updateMs" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, m_id, title, img_url, type, sort, attr, create_time, create_ms, update_time, 
+    update_ms
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_act_project_case_img
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_act_project_case_img
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.nbcedu.cases.model.ProjectCaseImg" >
+    insert into t_act_project_case_img (id, m_id, title, 
+      img_url, type, sort, 
+      attr, create_time, create_ms, 
+      update_time, update_ms)
+    values (#{id,jdbcType=VARCHAR}, #{mId,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{imgUrl,jdbcType=VARCHAR}, #{type,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, 
+      #{attr,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{createMs,jdbcType=BIGINT}, 
+      #{updateTime,jdbcType=TIMESTAMP}, #{updateMs,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nbcedu.cases.model.ProjectCaseImg" >
+    insert into t_act_project_case_img
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mId != null" >
+        m_id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="imgUrl != null" >
+        img_url,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="attr != null" >
+        attr,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createMs != null" >
+        create_ms,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateMs != null" >
+        update_ms,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="mId != null" >
+        #{mId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null" >
+        #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="attr != null" >
+        #{attr,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createMs != null" >
+        #{createMs,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateMs != null" >
+        #{updateMs,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nbcedu.cases.model.ProjectCaseImg" >
+    update t_act_project_case_img
+    <set >
+      <if test="mId != null" >
+        m_id = #{mId,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null" >
+        img_url = #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="attr != null" >
+        attr = #{attr,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createMs != null" >
+        create_ms = #{createMs,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateMs != null" >
+        update_ms = #{updateMs,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nbcedu.cases.model.ProjectCaseImg" >
+    update t_act_project_case_img
+    set m_id = #{mId,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      img_url = #{imgUrl,jdbcType=VARCHAR},
+      type = #{type,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      attr = #{attr,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_ms = #{createMs,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_ms = #{updateMs,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="selectPage" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_act_project_case_img
+    where m_id = #{mId,jdbcType=VARCHAR}
+    limit #{page},#{limit}
+  </select>
+  
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_act_project_case_img
+    where m_id = #{mId,jdbcType=VARCHAR}
+  </select>
+  
+   <delete id="deletes" parameterType="java.lang.String" >
+    delete from t_act_project_case_img
+    where id in
+    <foreach item="item" index="index" collection="array"   open="(" separator="," close=")">  
+              #{item}  
+     </foreach> 
+  </delete>
+  
+  <select id="selectBymId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_act_project_case_img
+    where m_id = #{mId,jdbcType=VARCHAR}
+  </select>
+  
+</mapper>

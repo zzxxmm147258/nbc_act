@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >  
+<generatorConfiguration>  
+
+    <!-- 指定数据连接驱动jar地址   -->
+    <classPathEntry location="D:/m2uc/mysql/mysql-connector-java/5.1.31/mysql-connector-java-5.1.31.jar" /> 
+
+    <!-- 一个数据库一个context -->  
+    <context id="infoGuardian">
+        <!-- 注释 -->  
+        <commentGenerator >  
+            <property name="suppressAllComments" value="true"/><!-- 是否取消注释 -->  
+            <property name="suppressDate" value="true" /> <!-- 是否生成注释代时间戳-->  
+        </commentGenerator>  
+          
+        <!-- jdbc连接 -->  
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"  
+            connectionURL="jdbc:mysql://123.56.110.253:3306/act" userId="root"
+            password="ixq_secret_passw0rd" />   
+          
+        <!-- 类型转换 -->  
+        <javaTypeResolver>  
+            <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->  
+            <property name="forceBigDecimals" value="false"/>  
+        </javaTypeResolver>  
+          
+        <!-- 生成实体类地址 -->    
+        <javaModelGenerator targetPackage="com.nbcedu.user.model"  
+            targetProject="act">  
+            <!-- 是否在当前路径下新加一层schema,eg：fase路径hbsoft.domain， true:hbsoft.domain.[schemaName] -->  
+            <property name="enableSubPackages" value="false"/>  
+            <!-- 是否针对string类型的字段在set的时候进行trim调用 -->  
+            <property name="trimStrings" value="true"/>  
+        </javaModelGenerator>  
+          
+        <!-- 生成mapxml文件 -->  
+        <sqlMapGenerator targetPackage="com.nbcedu.user.dao"  
+            targetProject="act" >  
+            <!-- 是否在当前路径下新加一层schema,eg：fase路径hbsoft.mybatis.model， true:hbsoft.mybatis.model.[schemaName] -->  
+            <property name="enableSubPackages" value="false" />  
+        </sqlMapGenerator>  
+          
+        <!-- 生成mapxml对应client，也就是接口dao -->      
+        <javaClientGenerator targetPackage="com.nbcedu.user.dao"  
+            targetProject="act" type="XMLMAPPER" >  
+            <!-- 是否在当前路径下新加一层schema,eg：fase路径hbsoft.dao， true:hbsoft.dao.[schemaName] -->  
+            <property name="enableSubPackages" value="false" />  
+        </javaClientGenerator>
+          
+        <!-- 配置表信息 -->  
+        <!-- schema即为数据库名 tableName为对应的数据库表 domainObjectName是要生成的实体类 enable*ByExample是否生成 example类  -->  
+      <table schema="act" tableName="t_act_role" domainObjectName="Role" enableCountByExample="false" enableDeleteByExample="false" enableSelectByExample="false" enableUpdateByExample="false"/>
+      
+    </context>  
+
+</generatorConfiguration> 

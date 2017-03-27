@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="renderer" content="webkit">
+    <title>后台管理系统</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+    <link href="js/plugins/gritter/jquery.gritter.css" rel="stylesheet">
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="wrapper">
+        <!-- 左侧切换选择按钮 -->
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="side-menu">
+                    <li class="nav-header">
+                        <div class="profile-element">
+                            <a href="index.html">
+                                <strong class="font-bold block m-t-xs" style="font-size:16px; color:#fff;">Beaut-zihan账号</strong>
+                                <span class="text-muted text-xs block" style="font-size:14px; color:#fff;">超级管理员</span>
+                            </a>
+                        </div>
+                    </li>
+
+                    <li class="titleHeight  active_list   group1" data-link="index01.html">
+                        <i class="fa fa-th-large  font_20" style="margin-right:10px"></i>
+                        <span class="nav-label">项目管理</span>
+                    </li>
+
+                    <li class="titleHeight  group1" data-link="index02.html">
+                        <i class="fa fa-sitemap font_20" style="margin-right:10px"></i>
+                        <span class="nav-label">产品体系管理</span>
+                    </li>
+
+                    <li class="titleHeight  group2" data-link="deploy01.html">
+                        <i class="fa fa-bar-chart-o  font_20" style="margin-right:10px"></i>
+                        <span class="nav-label">配置单查看</span>
+                    </li>
+
+
+                    <li class="titleHeight   group3" data-link="user01.html">
+                        <i class="fa fa-user  font_20" style="margin-right:10px"></i>
+                        <span class="nav-label">管理员设置</span>
+                    </li>
+
+                    <li class="titleHeight   group3" data-link="user02.html">
+                        <i class="fa fa-users font_20" style="margin-right:10px"></i>
+                        <span class="nav-label">会员管理</span>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg dashbard-1">
+            <!-- head   开始-->
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
+                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i></a>
+                    <ul class="nav navbar-top-links">
+                        <li class="col-lg-2  textCenter" group="group1">
+                            <a href="index.html" class="color3 active_font">
+                                <i class="fa fa-home"></i>资源管理
+                            </a>
+                        </li>
+
+                        <li class="col-lg-2  textCenter" group="group2">
+                            <a class="color3">
+                                <i class="fa fa-bar-chart-o"></i>配置单查看
+                            </a>
+                        </li>
+
+                        <li class="col-lg-2  textCenter" group="group3">
+                            <a class="color3">
+                                <i class="fa fa-edit"></i>用户管理
+                            </a>
+                        </li>
+
+                        <li class="col-lg-2 fr textRight">
+                            <a href="login.html" class="color9">
+                                <i class="fa fa-sign-out"></i> 退出
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <!-- head  end -->
+            <!--  CON  -->
+            <div class="row wrapper border-bottom white-bg page-heading" style="padding: 23px  40px;">
+                <!-- iframe -->
+                <iframe src="index01.html" id="index_container" scrolling="no" frameborder="0" /></iframe>
+            </div>
+        </div>
+    </div>
+    <!-- Mainly scripts -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="js/hplus.js"></script>
+    <script src="js/plugins/pace/pace.min.js"></script>
+    <script>
+        $(function() {
+            $(document).on("click","ul.navbar-top-links li:not('.textRight')",function(){
+                var $this = $(this);
+                $this.find("a").addClass("active_font");
+                $this.siblings().each(function(i,item){
+                    $(item).find("a").removeClass("active_font");
+                });
+                var group = $this.attr("group");
+                $("#side-menu li:not('.nav-header')").hide().removeClass("disBlock");
+                $("#side-menu li."+group).show().addClass("disBlock");
+                $("#side-menu li."+group).first().addClass('active_list');
+                $("#side-menu li."+group).first().trigger("click");
+            });
+            $("ul.navbar-top-links li:not('.textRight')").eq(0).trigger("click");
+            // 左侧竖边栏单击加背景色/iframe切换
+            $("li.titleHeight").on('click', function(event) {
+                event.preventDefault();
+                var $this = $(this),
+                dataLink = $this.attr("data-link");
+                $("#index_container").attr("src", dataLink);
+            });
+            // 左侧竖边栏单击切换效果
+            $("li.titleHeight").on('click', function(event) {
+                $(this).addClass('active_list').siblings().removeClass('active_list')
+            });
+        });
+    </script>
+</body>
+
+</html>

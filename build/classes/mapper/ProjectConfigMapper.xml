@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nbcedu.project.dao.ProjectConfigMapper" >
+  <resultMap id="BaseResultMap" type="com.nbcedu.project.model.ProjectConfig" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="m_id" property="mId" jdbcType="VARCHAR" />
+    <result column="type_id" property="typeId" jdbcType="VARCHAR" />
+    <result column="type_name" property="typeName" jdbcType="VARCHAR" />
+    <result column="price_type" property="priceType" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="fixed_price" property="fixedPrice" jdbcType="DECIMAL" />
+    <result column="select_type" property="selectType" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="attr" property="attr" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_ms" property="createMs" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_ms" property="updateMs" jdbcType="BIGINT" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.nbcedu.project.model.ProjectConfig" extends="BaseResultMap" >
+    <result column="detail" property="detail" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, m_id, type_id, type_name,price_type, price, fixed_price, select_type, sort, attr, create_time, 
+    create_ms, update_time, update_ms
+  </sql>
+  <sql id="Blob_Column_List" >
+    detail
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from t_act_project_config
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_act_project_config
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.nbcedu.project.model.ProjectConfig" >
+    insert into t_act_project_config (id, m_id, type_id, 
+      type_name, price_type,price, fixed_price, 
+      select_type, sort, attr, 
+      create_time, create_ms, update_time, 
+      update_ms, detail)
+    values (#{id,jdbcType=VARCHAR}, #{mId,jdbcType=VARCHAR}, #{typeId,jdbcType=VARCHAR}, 
+      #{typeName,jdbcType=VARCHAR},#{priceType,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, #{fixedPrice,jdbcType=DECIMAL}, 
+      #{selectType,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{attr,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createMs,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateMs,jdbcType=BIGINT}, #{detail,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nbcedu.project.model.ProjectConfig" >
+    insert into t_act_project_config
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="mId != null" >
+        m_id,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="typeName != null" >
+        type_name,
+      </if>
+      <if test="priceType != null" >
+        price_type,
+      </if>
+      <if test="price != null" >
+        price,
+      </if>
+      <if test="fixedPrice != null" >
+        fixed_price,
+      </if>
+      <if test="selectType != null" >
+        select_type,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="attr != null" >
+        attr,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createMs != null" >
+        create_ms,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateMs != null" >
+        update_ms,
+      </if>
+      <if test="detail != null" >
+        detail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="mId != null" >
+        #{mId,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="typeName != null" >
+        #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="priceType != null" >
+        #{priceType,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="fixedPrice != null" >
+        #{fixedPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="selectType != null" >
+        #{selectType,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="attr != null" >
+        #{attr,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createMs != null" >
+        #{createMs,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateMs != null" >
+        #{updateMs,jdbcType=BIGINT},
+      </if>
+      <if test="detail != null" >
+        #{detail,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nbcedu.project.model.ProjectConfig" >
+    update t_act_project_config
+    <set >
+      <if test="mId != null" >
+        m_id = #{mId,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="typeName != null" >
+        type_name = #{typeName,jdbcType=VARCHAR},
+      </if>
+      <if test="priceType != null" >
+        price_type = #{priceType,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null" >
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="fixedPrice != null" >
+        fixed_price = #{fixedPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="selectType != null" >
+        select_type = #{selectType,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="attr != null" >
+        attr = #{attr,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createMs != null" >
+        create_ms = #{createMs,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateMs != null" >
+        update_ms = #{updateMs,jdbcType=BIGINT},
+      </if>
+      <if test="detail != null" >
+        detail = #{detail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.nbcedu.project.model.ProjectConfig" >
+    update t_act_project_config
+    set m_id = #{mId,jdbcType=VARCHAR},
+      type_id = #{typeId,jdbcType=VARCHAR},
+      type_name = #{typeName,jdbcType=VARCHAR},
+      price_type = #{priceType,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      fixed_price = #{fixedPrice,jdbcType=DECIMAL},
+      select_type = #{selectType,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      attr = #{attr,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_ms = #{createMs,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_ms = #{updateMs,jdbcType=BIGINT},
+      detail = #{detail,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nbcedu.project.model.ProjectConfig" >
+    update t_act_project_config
+    set m_id = #{mId,jdbcType=VARCHAR},
+      type_id = #{typeId,jdbcType=VARCHAR},
+      type_name = #{typeName,jdbcType=VARCHAR},
+      price_type = #{priceType,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      fixed_price = #{fixedPrice,jdbcType=DECIMAL},
+      select_type = #{selectType,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      attr = #{attr,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_ms = #{createMs,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_ms = #{updateMs,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  
+  <resultMap id="ListResultMap" type="com.nbcedu.project.model.ProjectConfig" >
+  	<result column="id" property="id" jdbcType="VARCHAR" />
+    <result column="m_id" property="mId" jdbcType="VARCHAR" />
+    <result column="type_id" property="typeId" jdbcType="VARCHAR" />
+    <result column="type_name" property="typeName" jdbcType="VARCHAR" />
+    <result column="price_type" property="priceType" jdbcType="VARCHAR" />
+    <result column="price" property="price" jdbcType="DECIMAL" />
+    <result column="fixed_price" property="fixedPrice" jdbcType="DECIMAL" />
+    <result column="select_type" property="selectType" jdbcType="VARCHAR" />
+    <result column="detail" property="detail" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  
+  <select id="selectBymId" resultMap="ListResultMap" parameterType="java.lang.String" >
+    select 
+    id, 
+    m_id, 
+    type_id, 
+    type_name,
+    price_Type, 
+    price, 
+    fixed_price, 
+    select_type,
+    detail
+    from t_act_project_config
+    where m_id = #{mId,jdbcType=VARCHAR}
+    and select_type!='10'
+    ORDER BY type_ID
+  </select>
+  
+  <select id="selectByIds"  resultMap="BaseResultMap"  parameterType="java.lang.String" >
+    select * from t_act_project_config
+    where select_type!='10' and id in
+    <foreach item="item" index="index" collection="array"   open="(" separator="," close=")">  
+              #{item}  
+     </foreach> 
+  </select>
+</mapper>

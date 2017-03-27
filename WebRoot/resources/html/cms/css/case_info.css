@@ -1,0 +1,43 @@
+.clear{clear: both; height: 1px; overflow: hidden;}
+#infoContainer b{color:red;}
+.note-editor{height: 350px;}
+.editBtn{text-align: center;}
+.editBtn button{margin: 20px 40px;}
+.addBtn{background: #f1f1f1; padding: 10px;}
+#editContent{background: #f1f1f1; padding: 10px;}
+#editContent div{margin: 6px 0; position: relative;}
+#editContent .checkEdit{position: absolute; left: 0; top: 0; margin: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.3); padding: 10px; text-align: right;}
+
+#titleEditForm{padding: 20px; box-sizing: border-box;}
+.colorpicker{z-index: 1000000000!important}
+
+.file { position: relative; display: inline-block;background: #00b7ee; border-radius: 4px; padding: 6px 15px; overflow: hidden; color: #ffffff; text-decoration: none; text-indent: 0; line-height: 20px; margin: 0;}
+.file input {position: absolute; right: 0; top: 0; opacity: 0; height: 40px;}
+.file:hover {background: #AADFFD; border-color: #78C3F3; color: #ffffff;  text-decoration: none;}
+
+#updataImg{display: block; margin-top: 10px;}
+
+.style-1{height: 50px; padding: 0 22px 11px 42px; background: url("../img/left.png") 0 0 no-repeat,url("../img/right.png") right 0 no-repeat; display: inline-block;}
+.style-1 label{box-sizing:border-box; padding-right: 10px; height: 100%;display: -webkit-flex;display: flex;-webkit-align-items: center;align-items: center; background-color: #83c160;}
+
+
+#config{}
+#config h3{padding: 15px 0 15px 15px; background: #f1f1f1; margin: 0 0 15px 0;}
+#config form{border:1px solid #dedede; padding: 0 0 15px 0; margin: 20px auto;}
+#config form label{padding: 0 8px 0 0; width: 110px; text-align: right; box-sizing: border-box; line-height: 30px;}
+#config form .shortInput{width: 130px; line-height: 30px;}
+
+#config input[type=radio],#config input[type=checkbox]{margin-right: 8px; line-height: 30px;}
+#config .configList{ padding: 0; box-sizing: border-box; margin: 0 20px 0 115px; border:1px solid #dedede; border-bottom:0;}
+#config .configList li{border-bottom:1px solid #dedede; list-style: none; width: 100%; display: block; clear: both;}
+#config .configList li label,#config .configList li span{display: inline-block; text-align: center; width: 35%; line-height: 35px; box-sizing: border-box;}
+#config .configList li:nth-child(2n+1){background:#f1f1f1;}
+.configTable{width: 100%; height: auto; max-height: 318px; overflow-y: scroll; border:1px solid #f1f1f1;}
+.configTable table{border:0;}
+.configTable th{text-align: center;background: #F5F5F6}
+.configTable td{text-align: center;}
+.configTable td label{font-size: 16px; padding: 6px 0 0 0;}
+.configTable td input{width: 90%; margin: 0 auto; line-height: 24px; cursor: pointer;}
+.configEditBox{padding: 0 15px; background: #fff; width: 600px; box-sizing: border-box;}
+
+

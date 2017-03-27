@@ -1,0 +1,66 @@
+@charset"utf-8";
+/*head*/
+.box{min-width: 1349px;overflow: hidden;}
+.min-width{min-width: 1290px;margin-left:10px;margin-right: 20px;overflow: hidden;}
+.head{height: 60px;}
+.head h3 a{background: url(../image/logo.png) left bottom no-repeat;width: 113px;height: 42px;display: inline-block;margin-top: 15px;}
+.head_input{margin-left: 33px;margin-top: 30px;}
+.head_input input{height:20px;}
+.head_input .one{width: 177px;border:1px solid #ccc;margin-right: 2px;padding:0 4px;}
+.head_input .two{width: 40px;background: #41B3E5;color:#fff;font-size:12px;line-height: 20px;text-align: center;}
+.head ul{margin-top: 15px;}
+.head ul li{float: left;font:16px/43px '';margin-left: 12px;vertical-align: middle;}
+.head  li span{height: 18px;display: inline-block;background-repeat: no-repeat;background-position: left center;width: 20px;margin-top: -4px;vertical-align: middle;}
+.head .ctrls{background-image: url(../image/ctrls.png);}
+.head .help{background-image: url(../image/help.png);}
+.head .go{background-image: url(../image/go.png);margin-right: 2px;}
+
+
+/*add*/
+.add{height:39px;width: 100%;background:#F0F0F0;margin-bottom: 3px; border-bottom:2px solid #63A8E9;}
+.tindex{text-indent: -200px;}
+.add ul{height: 37px;width: 100%;padding-left: 40px;}
+.add ul li{float: left;height: 37px;text-align: center;}
+.add ul li a{font:16px/37px '黑体';color:#000;border-right: 1px solid #BFBFBF;height: 37px;display: inline-block;padding:0 7px;}
+
+/*content*/
+.list_ul{width: 190px; overflow:auto;}
+.list_ul ul{display: none;}
+.list_ul ul li {padding-bottom: 5px;}
+.list_ul ul li h2{background:#FBFBFB;height:39px;height:33px;padding-left: 30px;border:1px solid #DCDCDC;position: relative;}
+.list_ul ul li h2 span{border-width: 5px;border-color: #808080 transparent transparent transparent;border-style: solid dashed dashed dashed;width: 0;padding: 0;position: absolute;right: 10px;top: 50%;margin-top: -5px;}
+.list_ul ul li h2 span.active{border-width: 5px;border-color: transparent transparent #808080 transparent;border-style: dashed dashed solid dashed;width: 0;padding: 0;position: absolute;right: 10px;top: 50%;margin-top: -5px;}
+.list_ul ul li h2 a{color:#444444;font: 14px/33px '黑体';}
+.list_ul ul strong{background: url(../image/xiala.png) right center no-repeat;width: 17px;height: 17px;position: absolute;right:9px;top:50%;margin-top: -9px;}
+.list_ul ul.active{display: block;}
+.cont{margin-left: 200px;}
+#menu ul{position: absolute;left:130px;top:0px;width: 130px;background:  #41B3E5;}
+.list_ul li dl{display: none;border:1px solid #DCDCDC;margin-top: -1px;}
+.list_ul li dl.active{display: block;}
+.list_ul li dl dd{height: 33px;padding-left: 40px;}
+.list_ul li dl dd a{font:14px/33px '微软雅黑';color:#444444;}
+.list_ul li dl dd:hover{background: #ccc;}
+.cont iframe{width: 100%;height: 100%;border:0;}
+.Current{height: 35px;line-height: 35px;display:none;}
+.Current ul li,.Current span{float: left;font:16px/35px '微软雅黑';margin-right: 3px;}
+.Current span em{background: url(../image/fangzi.png) left center no-repeat;width: 20px;height: 16px;display: inline-block;margin-right: 4px;}
+.list_ul .fixed{height:33px;background: #84C2F9;line-height: 36px;padding-left: 10px;position: relative;margin-bottom: 5px;}
+.list_ul .fixed a{font-size: 16px; color:#fff;}
+/*.cont_Automatic_list*/
+.cont_Automatic_list{height: 30px;margin-bottom: 10px;}
+.cont_Automatic_list ul li{float: left;border:1px solid #808080;position:relative;}
+.cont_Automatic_list ul li a{font:14px/30px '微软雅黑';color:#808080;padding-left: 8px;padding-right: 25px;}
+.cont_Automatic_list ul li a span{background: url(../image/display.png) left center no-repeat;display: inline-block;width:20px;height: 20px;position: absolute;right:-2px;top:20%;}
+/*.cont_iframe_Whole*/
+.cont_iframe_item{height:100%;}
+.cont_iframe_item.active{display: block;}
+
+.cont_Automatic_list ul{height: 30px;}
+.cont_iframe_li{position:relative;}
+.cont_Automatic_list .remove_all{position:relative;border:1px solid #ccc;width:24px;height: 30px;}
+.cont_Automatic_list .remove_all i{border-width: 5px;border-color: #aaa transparent transparent transparent;border-style: solid dashed dashed dashed;width:0;height: 0;position:absolute;left:30%;top:40%;}
+.remove_all dl{position:absolute;right:0;top:30px;width:110px;-webkit-box-shadow:0 0px 14px -1px #C0C0C0;z-index: 30;display: none;}
+.remove_all dd,.remove_icon dd{height: 29px;font:12px/29px '微软雅黑';background: #fff;padding:0 10px;}
+.remove_all dd:hover{background: #ccc;}
+.remove_icon dd:hover{background: #ccc;}
+.remove_icon{position:absolute;left:0;top:30px;width:110px;-webkit-box-shadow:0 0px 14px -1px #C0C0C0;z-index: 30;display: none;}

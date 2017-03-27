@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nbcedu.user.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.nbcedu.user.model.User" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="true_name" property="trueName" jdbcType="VARCHAR" />
+    <result column="nice_name" property="niceName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="BIT" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="emall" property="emall" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="attr" property="attr" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_ms" property="createMs" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_ms" property="updateMs" jdbcType="BIGINT" />
+    <result column="del_status" property="delStatus" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_name, password, true_name, nice_name, sex, phone, emall, address, attr, 
+    create_time, create_ms, update_time, update_ms, del_status, status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_act_user
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    update t_act_user set del_status = '1'
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertSelective" parameterType="com.nbcedu.user.model.User" >
+    insert into t_act_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="trueName != null" >
+        true_name,
+      </if>
+      <if test="niceName != null" >
+        nice_name,
+      </if>
+      <if test="sex != null" >
+        sex,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="emall != null" >
+        emall,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+      <if test="attr != null" >
+        attr,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createMs != null" >
+        create_ms,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateMs != null" >
+        update_ms,
+      </if>
+      <if test="delStatus != null" >
+        del_status,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="trueName != null" >
+        #{trueName,jdbcType=VARCHAR},
+      </if>
+      <if test="niceName != null" >
+        #{niceName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        #{sex,jdbcType=BIT},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="emall != null" >
+        #{emall,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="attr != null" >
+        #{attr,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createMs != null" >
+        #{createMs,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateMs != null" >
+        #{updateMs,jdbcType=BIGINT},
+      </if>
+      <if test="delStatus != null" >
+        #{delStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nbcedu.user.model.User" >
+    update t_act_user
+    <set >
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="trueName != null" >
+        true_name = #{trueName,jdbcType=VARCHAR},
+      </if>
+      <if test="niceName != null" >
+        nice_name = #{niceName,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null" >
+        sex = #{sex,jdbcType=BIT},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="emall != null" >
+        emall = #{emall,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="attr != null" >
+        attr = #{attr,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createMs != null" >
+        create_ms = #{createMs,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateMs != null" >
+        update_ms = #{updateMs,jdbcType=BIGINT},
+      </if>
+      <if test="delStatus != null" >
+        del_status = #{delStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="selectPage" resultMap="BaseResultMap" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_act_user
+    where 1=1
+    limit #{page},#{limit}
+  </select>
+  
+  <select id="selectByCondition" resultMap="BaseResultMap" >
+    select * from t_act_user where del_status='0'
+  </select>
+  
+  
+  <select id="checkUnique" resultType="java.lang.Integer" parameterType="java.util.Map">
+  	select count(*) from t_act_user
+	<where>
+		<foreach collection="params.keys" item="key" index="_index" open="(" close=")" >
+			<if test="_index > 0">
+				OR 
+			</if>
+			${key} = #{params[${key}]} 
+		</foreach>
+		and del_status='0'
+	</where>
+  </select>
+  
+  <select id="login" resultMap="BaseResultMap" parameterType="java.lang.String">
+  	select 
+    	<include refid="Base_Column_List" />
+    from t_act_user
+    where user_name=#{user_name}
+  </select>
+  
+  
+  <update id="updateUser" parameterType="com.nbcedu.user.model.User" >
+    update t_act_user
+    <set >
+      <if test="password != null and password != '' " >
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="trueName != null and  trueName != '' " >
+        true_name = #{trueName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+</mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nbcedu.dic.dao.DictdefMapper">
+	<resultMap type="com.nbcedu.dic.model.Dictdef" id="BaseResultMap">
+		<id column="dictid" property="dictid" jdbcType="INTEGER"/>
+		<result column="cname" property="cname" jdbcType="VARCHAR"/>
+		<result column="ename" property="ename" jdbcType="VARCHAR"/>
+		<result column="remark" property="remark" jdbcType="VARCHAR"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		dictid,cname,ename,remark
+	</sql>
+	<select id="selectAll" resultMap="BaseResultMap">
+		SELECT
+	    dictid,
+	    cname,
+	    ename,
+	    remark
+        FROM
+	   dictdef
+	</select>
+	<select id="getById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+	    select * from dictdef where dictid = #{dictid}
+	</select>
+	<insert id="insert" parameterType="com.nbcedu.dic.model.Dictdef">
+		insert into dictdef(dictid,cname,ename,remark)
+		values(#{dictid,jdbcType=INTEGER},#{cname,jdbcType=VARCHAR},
+				#{ename,jdbcType=VARCHAR},#{remark,jdbcType=VARCHAR})
+	</insert>
+	<delete id="deleteByDictid" parameterType="Integer">
+		delete from dictdef
+		where dictid = #{dictid}
+	</delete>
+	<update id="updateByDictid" parameterType="com.nbcedu.dic.model.Dictdef">
+		update dictdef 
+		<set>
+			<if test="dictdef.dictid != null">
+				dictid = #{dictdef.dictid,jdbcType=INTEGER},
+			</if>
+			<if test="dictdef.cname != null">
+				cname = #{dictdef.cname,jdbcType=VARCHAR},
+			</if>
+			<if test="dictdef.ename != null">
+				ename = #{dictdef.ename,jdbcType=VARCHAR}
+			</if>
+			<if test="dictdef.remark != null">
+				remark = #{dictdef.remark,jdbcType=VARCHAR}
+			</if>
+		
+		</set>
+		where dictid = #{oldDictid,jdbcType=INTEGER}
+	</update>
+</mapper>

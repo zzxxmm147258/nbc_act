@@ -1,0 +1,39 @@
+<html>
+<head>
+<link href="../css/uploadfile.css" rel="stylesheet">
+<script src="../js/jquery-2.1.1.min.js"></script>
+	<script src="../js/jquery.form.js"></script>
+<script src="../js/jquery.uploadfile.js"></script>
+	<style type="text/css">
+		#uploadCainter{display:none;position: fixed; left: 0; top:0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 999;}
+		#uploadCainter .box{ background: #fff; padding:15px; border-radius: 8px; position: absolute; top:100px; left: 50%; margin-left: -250px;}
+		#uploadCainter #colse{position: absolute; right:-8px; top: -8px; z-index: 1; background: #fff; border-radius: 50%; width: 25px; height: 25px; color: #898989; text-align: center; padding-top: 5px; box-sizing: border-box; text-decoration: none;}
+	</style>
+</head>
+<body>
+<h1 style="text-align:center;">zyUpload示例</h1>
+
+<button style="width: 150px; height: 35px;" onclick="javascript:$('#uploadCainter').show();">上传图片</button>
+<div id="uploadCainter">
+	<div class="box">
+		<a href="javascript:$('#uploadCainter').hide()" id="colse">X</a>
+		<div id="fileuploader"></div>
+	</div>
+
+</div>
+
+<!--<div id="fileuploader">Upload</div>-->
+<script>
+$(document).ready(function() {
+	$("#fileuploader").uploadFile({
+		url:"#",
+		fileName:"myfile",
+		allowedTypes:"jpg,jpeg,png,gif",
+		uploadStr : '选择图片',
+		dragDropStr : ''
+	});
+});
+</script>
+</body>
+</html>
+

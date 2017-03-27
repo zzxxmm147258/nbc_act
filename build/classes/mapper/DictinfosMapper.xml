@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nbcedu.dic.dao.DictinfosMapper">
+	<resultMap type="com.nbcedu.dic.model.Dictinfos" id="BaseResultMap">
+		<id column="dictid" property="dictid" jdbcType="INTEGER"/>
+		<id column="code" property="code" jdbcType="VARCHAR"/>
+		<result column="cname" property="cname" jdbcType="VARCHAR"/>
+		<result column="ename" property="ename" jdbcType="VARCHAR"/>
+	</resultMap>
+	<sql id="Base_Column_List">
+		dictid,code,cname,ename
+	</sql>
+	<select id="selectAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List"/>
+		from dictinfo
+	</select>
+	<select id="selectByDictid" resultMap="BaseResultMap">
+		SELECT 
+		do.dictid, do.code, do.cname, do.ename
+	 	FROM 
+	 	dictdef df,dictinfo do 
+	 	WHERE 
+	 	df.dictid = do.dictid 
+	 	AND df.dictid = #{dictid}
+	 	<if test="currentSalesStatus != null and currentSalesStatus != ''">
+	 		AND CODE >=  (SELECT CODE FROM dictinfo WHERE cname = #{currentSalesStatus})
+	 	</if>
+	 	ORDER BY do.code
+	</select>
+	<select id="selectAllByDictid" parameterType="Integer" resultMap="BaseResultMap">
+		SELECT 
+		do.dictid, do.code, do.cname, do.ename
+	 	FROM 
+	 	dictdef df,dictinfo do 
+	 	WHERE 
+	 	df.dictid = do.dictid 
+	 	AND df.dictid = #{dictid}
+	 	ORDER BY do.dictid
+	</select>
+	<delete id="delete">
+		delete 
+		from dictinfo
+		where dictid = #{dictid}
+		  and code = #{code}
+	</delete>
+	<delete id="delectByDictid" parameterType="Integer">
+		delete
+		from dictinfo
+		where dictid = #{dictid}
+	</delete>
+	<insert id="insert" parameterType="com.nbcedu.dic.model.Dictinfos">
+		insert into dictinfo(dictid,code,cname,ename)
+		values(#{dictid,jdbcType=INTEGER},#{code,jdbcType=VARCHAR},
+				#{cname,jdbcType=VARCHAR},#{ename,jdbcType=VARCHAR})
+	</insert>
+	<update id="updateByOldKey" parameterType="com.nbcedu.dic.model.Dictinfos">
+		update dictinfo
+		<set>
+			<if test="dictinfo.dictid != null">
+		 		dictid = #{dictinfo.dictid,jdbcType=INTEGER},
+		 	</if>
+		 	<if test="dictinfo.code != null">
+				code = #{dictinfo.code,jdbcType=VARCHAR},
+		 	</if>
+		 	<if test="dictinfo.cname != null">
+				cname = #{dictinfo.cname,jdbcType=VARCHAR},
+		 	</if>
+		 	<if test="dictinfo.ename">
+				ename = #{dictinfo.ename,jdbcType=VARCHAR},
+		 	</if>
+		</set>
+		where dictid = #{dictinfo.dictid,jdbcType=VARCHAR}
+			and code = #{oldCode,jdbcType=VARCHAR}
+	</update>
+	<update id="updateDictidByDictid" parameterType="Integer">
+		update dictinfo
+		set dictid = #{newDictid,jdbcType=INTEGER}
+		where dictid = #{oldDictid,jdbcType=INTEGER}
+	</update>
+	
+	<select id="selectByDictidCode" parameterType="String" resultMap="BaseResultMap">
+		select * from dictinfo where dictid=#{dictid,jdbcType=VARCHAR} and code=#{code,jdbcType=VARCHAR}
+	</select>
+</mapper>

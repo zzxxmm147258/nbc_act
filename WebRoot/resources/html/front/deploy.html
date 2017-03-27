@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta name="keywords" content="三芳科技,青少年成长第二校园" />
+    <meta name="description" content="三芳科技,青少年成长第二校园" />
+    <title>青少年成长第二校园</title>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <!--[if lte IE 8]>
+    <div id="ie8-warning">您正在使用 Internet Explorer 8，在本页面的显示效果可能有差异。建议您使用： <a href="http://www.mozillaonline.com/">Firefox</a> / <a href="http://www.google.com/chrome/">Chrome</a> / <a href="http://www.apple.com.cn/safari/">Safari</a> / <a href="http://www.operachina.com/">Opera</a>
+    </div>
+<![endif]-->
+</head>
+
+<body style="background:#f8f8f8;">
+    <!-- 最顶部  我的配置单栏 -->
+    <div class="head-box">
+        <div class="container  textRight">
+            <a href="#">
+                <img src="images/shopping.png" alt="">
+                <span style="margin-left:3px">我的配置单</span>
+            </a>
+            <span style="margin-left:30px">欢迎：15010095633</span>
+        </div>
+    </div>
+
+    <!-- logo和搜索栏 -->
+    <div class="nav-top" style="background: #fcfcfc;">
+        <div class="container">
+            <a class="navbar-brand textLeft  fl mt20  col-lg-6 col-md-6">
+                <img src="images/logo.png">
+            </a>
+            <div class="input-group fr mt30 col-lg-6  col-md-6">
+                <input type="text" class="form-control" value="输入关键词搜索" style="color:#999">
+                <span class="input-group-btn">
+                <button type="button" class="btn btn-primary" style="margin-left:-5px;">案例
+                </button>
+                <button type="button" class="btn btn-primary" id="btn-radius">项目
+                </button>
+              </span>
+            </div>
+        </div>
+    </div>
+
+    <!--  导航栏 -->
+    <nav class="navbar navbar-default navbar-sunfu" role="navigation">
+        <div class="container container-sunfu">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav  navbar-nav" style="width:100%">
+                    <li class="active"><a href="index.html">首页</a></li>
+                    <li><a href="list-active.html">综合社会实践活动</a></li>
+                    <li><a href="list-science.html">科学系列</a></li>
+                    <li><a href="list-mental.html">心理与健康系列</a></li>
+                    <li><a href="list-art.html">艺术系列</a></li>
+                    <li><a href="list-case.html">精彩案例 </a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 配置单内容  -->
+    <div class="container clear">
+        <!-- 分类选项 -->
+        <div class="all">
+            <div class="col-lg-12">
+                <span class="curd font16">所属产品体系：</span>
+                <a href="#" class="btn btn-list current_a">全部</a>
+                <a href="#" class="btn btn-list">实践</a>
+                <a href="#" class="btn btn-list">科学</a>
+                <a href="#" class="btn btn-list">心理与健康</a>
+                <a href="#" class="btn btn-list">艺术</a>
+            </div>
+        </div>
+        <!-- 第1个-->
+        <div class="deploy-box">
+            <div class="deployCon overHidden">
+                <!-- 左侧图片 -->
+                <div class="deployLeft">
+                    <img src="images/li.png" alt="">
+                </div>
+                <!-- 右侧文字描述 -->
+                <div class="deployRight">
+                    <span>产品体系：</span><span>实践系列</span>
+                    <br>
+                    <span>项目名称：</span><span>故宫新探秘</span>
+                    <br>
+                    <span>联系老师：</span><span class="mr20">张老师</span><span>18812345678</span>
+                    <br>
+                    <a href="#" class="color02 mr30"><img src="images/iconedit.png" alt="" class="mr5 mt-2">编辑</a>
+                    <a href="#" class="color02" data-toggle="modal" data-target="#myAlert">
+                        <img src="images/iconlaji.png" alt="" class="mr5 mt-2">删除</a>
+                </div>
+            </div>
+
+            <div class="deployCon clear pd10 pb15">
+                <span>活动人数：</span><span>20人</span>
+                <br>
+                <span>已选项目：</span>
+                <a href="#" class="color02 dropdown-toggle count-info" data-toggle="dropdown">
+                    <img src="images/chakan.png" alt="" class="mr5 mt-2"> 查看明细
+                </a>
+                <!--  查看明细  弹窗-->
+                <ul class="dropdown-menu dropdown-messages alert01">
+                    <!-- 第一部分明细 ，每个li是一部分-->
+                    <li class="borderBottom02">
+                        <p>物料的明细</p>
+                        <ol>
+                            <li>
+                                <span class="mr15">服装费</span>
+                                <span class="mr15">服装租借费用</span>
+                                <span>200元</span>
+                            </li>
+                            <li>
+                                <span class="mr15">服装费</span>
+                                <span class="mr15">服装租借费用</span>
+                                <span>200元</span>
+                            </li>
+                            <li>
+                                <span class="mr15">服装费</span>
+                                <span class="mr15">服装租借费用</span>
+                                <span>200元</span>
+                            </li>
+                        </ol>
+                    </li>
+
+                    <!-- 第2部分明细 -->
+                    <li class="borderBottom02">
+                        <p>交通的明细</p>
+                        <ol>
+                            <li>
+                                <span class="mr15">交通费</span>
+                                <span class="mr15">大巴车费用</span>
+                                <span>200元</span>
+                            </li>
+                        </ol>
+                    </li>
+                </ul>
+
+                <div class=" ml01  mb5">
+                    <span class="mr46">物料：<i>360元</i></span>
+                    <span class="mr46">交通：<i>120/人*20</i></span>
+                    <span class="mr46">人力：<i>1000元</i></span>
+                    <span class="mr46">场地：<i>1000元</i></span>
+                    <span class="mr46">保险：<i>20/人*20</i></span>
+                </div>
+                <span class="color06  font18 mr60">总费用：<i>3600元</i></span>
+                <span class="color06  font18">人均费用：<i>10元/人</i></span>
+            </div>
+
+            <div class="deployCon clear pd10 pb15">
+                <span>陪同人数：</span><span>2人</span>
+                <br>
+                <span class="color06  font18 mr60">总费用：<i>3600元</i></span>
+                <span class="color06  font18">人均费用：<i>10元/人</i></span>
+            </div>
+
+        </div>
+        <!-- 第1个结束 -->
+        <!-- 第2个-->
+
+
+        <!-- 第3个-->
+
+    </div>
+
+    <!-- 加载更多按钮 -->
+    <div class="btn01">加载更多</div>
+    </div>
+    <!--底栏  footer -->
+    <div class="footer">
+        <div class="container" style="padding-right:15px;">
+            <p class="col-lg-6  fl" style="font-size:12px; line-height:20px; margin-top:30px">
+                北京三芳科技有限公司&nbsp;&nbsp;
+                <br>Copyright © 2012-2015 sunfuedu.com</p>
+            <p class="col-lg-6  fr phone">
+                客服热线：400 5798 987</p>
+        </div>
+    </div>
+
+
+    <!-- 删除  提示弹窗内容如下 -->
+    <div class="modal inmodal" id="myAlert" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" style="width:400px; margin: 150px auto 0;">
+            <div class="modal-content animated bounceInRight">
+                <div class="modal-header" style="min-height: 110px; border:0">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">关闭</span>
+                    </button>
+                    <h5 class=" font16 mt40 textCenter">删除后不可恢复，确定删除？</h5>
+                </div>
+                <div class="modal-footer" style=" border:0; padding-bottom: 40px;">
+                    <button type="button" class="btn btn-white" data-dismiss="modal" style="width:100px">关闭</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" style="width:100px; margin:0 50px 0 50px;">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script src="js/jquery.metisMenu.js"></script>
+<script src="js/jquery.slimscroll.min.js"></script>
+<script>
+    $(function() {
+        $('a.btn-list').click(function(event) {
+            $(this).addClass('current_a').siblings().removeClass('current_a');
+        });
+    });
+</script>
+
+</html>

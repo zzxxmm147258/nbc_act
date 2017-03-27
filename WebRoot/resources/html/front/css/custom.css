@@ -1,0 +1,56 @@
+.icheckbox_square-green {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    background: url(../images/green.png) no-repeat;
+    margin: 0 5px 0 0;
+    border: 0;
+    cursor: pointer;
+    overflow: hidden
+}
+.check-box {
+    margin: 8px 0
+}
+.check-box tr td {
+    float: left
+}
+.check-box tr td input.i-checks{
+width: 18px;
+height: 18px;
+margin-top: 10px;
+margin-right: 5px;
+float: left;
+}
+.check-box tr td p{
+  float: left;
+}
+.iCheck-helper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    opacity: 0
+}
+.icheckbox_square-green {
+    background-position: 0 0
+}
+.icheckbox_square-green.hover {
+    background-position: -22px 0
+}
+.icheckbox_square-green.checked {
+    background-position: -44px 0
+}
+.icheckbox_square-green.disabled {
+    background-position: -66px 0;
+    cursor: default
+}
+.icheckbox_square-green.checked.disabled {
+    background-position: -88px 0
+}

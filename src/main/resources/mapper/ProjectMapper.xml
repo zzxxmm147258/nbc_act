@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nbcedu.project.dao.ProjectMapper" >
+  <resultMap id="BaseResultMap" type="com.nbcedu.project.model.Project" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="number" property="number" jdbcType="VARCHAR" />
+    <result column="type_id" property="typeId" jdbcType="VARCHAR" />
+    <result column="class_id" property="classId" jdbcType="VARCHAR" />
+    <result column="grade_id" property="gradeId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="recommend" property="recommend" jdbcType="INTEGER" />
+    <result column="is_recommend" property="isRecommend" jdbcType="BIT" />
+    <result column="des" property="des" jdbcType="VARCHAR" />
+    <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="details" property="details" jdbcType="VARCHAR" />
+    <result column="arrt" property="arrt" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_ms" property="createMs" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_ms" property="updateMs" jdbcType="BIGINT" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="del_status" property="delStatus" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, number,type_id, class_id, grade_id, name, recommend, is_recommend, des, img_url, details, 
+    arrt, create_time, create_ms, update_time, update_ms, status, del_status
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_act_project
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_act_project
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insertSelective" parameterType="com.nbcedu.project.model.Project" >
+    insert into t_act_project
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="typeId != null" >
+        type_id,
+      </if>
+      <if test="classId != null" >
+        class_id,
+      </if>
+      <if test="gradeId != null" >
+        grade_id,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="recommend != null" >
+        recommend,
+      </if>
+      <if test="isRecommend != null" >
+        is_recommend,
+      </if>
+      <if test="des != null" >
+        des,
+      </if>
+      <if test="imgUrl != null" >
+        img_url,
+      </if>
+      <if test="details != null" >
+        details,
+      </if>
+      <if test="arrt != null" >
+        arrt,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createMs != null" >
+        create_ms,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateMs != null" >
+        update_ms,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="delStatus != null" >
+        del_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null" >
+        #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="classId != null" >
+        #{classId,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeId != null" >
+        #{gradeId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="recommend != null" >
+        #{recommend,jdbcType=INTEGER},
+      </if>
+      <if test="isRecommend != null" >
+        #{isRecommend,jdbcType=BIT},
+      </if>
+      <if test="des != null" >
+        #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null" >
+        #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="details != null" >
+        #{details,jdbcType=VARCHAR},
+      </if>
+      <if test="arrt != null" >
+        #{arrt,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createMs != null" >
+        #{createMs,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateMs != null" >
+        #{updateMs,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="delStatus != null" >
+        #{delStatus,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nbcedu.project.model.Project" >
+    update t_act_project
+    <set >
+      <if test="number != null" >
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="typeId != null" >
+        type_id = #{typeId,jdbcType=VARCHAR},
+      </if>
+      <if test="classId != null" >
+        class_id = #{classId,jdbcType=VARCHAR},
+      </if>
+      <if test="gradeId != null" >
+        grade_id = #{gradeId,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="recommend != null" >
+        recommend = #{recommend,jdbcType=INTEGER},
+      </if>
+      <if test="isRecommend != null" >
+        is_recommend = #{isRecommend,jdbcType=BIT},
+      </if>
+      <if test="des != null" >
+        des = #{des,jdbcType=VARCHAR},
+      </if>
+      <if test="imgUrl != null" >
+        img_url = #{imgUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="details != null" >
+        details = #{details,jdbcType=VARCHAR},
+      </if>
+      <if test="arrt != null" >
+        arrt = #{arrt,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createMs != null" >
+        create_ms = #{createMs,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateMs != null" >
+        update_ms = #{updateMs,jdbcType=BIGINT},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="delStatus != null" >
+        del_status = #{delStatus,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <select id="selectPage" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_act_project
+    where del_status ='0' and is_recommend='1'
+    <if test="typeId != null and typeId != '' ">
+      and  type_id = #{typeId,jdbcType=VARCHAR}
+    </if>
+    ORDER BY recommend desc,create_time desc
+    limit #{page},#{limit}
+  </select>
+  
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_act_project
+    where del_status ='0'
+    <if test="typeId != null and typeId != '' ">
+      and  type_id = #{typeId,jdbcType=VARCHAR}
+    </if>
+    ORDER BY recommend desc,create_time desc
+  </select>
+  
+  <select id="selectByCaseNum" resultType="java.lang.Integer" parameterType="java.lang.String"  >
+   select  count(*) from  t_act_project_case where m_id=#{Id,jdbcType=VARCHAR}
+  </select> 
+  
+  <select id="selectByOrderNum" resultType="java.lang.Integer" parameterType="java.lang.String"  >
+   select  count(*) from  t_act_project_order where m_id=#{Id,jdbcType=VARCHAR}
+  </select>
+  
+
+  <update id="recommend" parameterType="com.nbcedu.project.model.Project">
+  	update t_act_project
+    <set >
+    	<if test="recommend != null" >
+        	recommend = #{recommend,jdbcType=INTEGER},
+        </if>
+        <if test="isRecommend != null" >
+        	is_recommend = #{isRecommend,jdbcType=BIT},
+        </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+  <update id="remove">
+    update t_act_project
+    	set del_status = '1'
+    	where id in 
+    	<foreach collection="ids" item="id_item" open="(" close=")" separator=",">
+    		#{id_item}
+    	</foreach>
+  </update>
+  
+  <resultMap id="ListResultMap" type="com.nbcedu.project.model.Project" >
+  	<result column="id" property="id" />
+  	<result column="name" property="name" />
+  	<result column="img_url" property="imgUrl" />
+  	<result column="recommend" property="recommend" />
+  	<result column="is_recommend" property="isRecommend" />
+  	<result column="caseNum" property="caseNum" />
+  	<result column="orderNum" property="orderNum" />
+  	<result column="configNum" property="configNum" />
+  </resultMap>
+  
+  <select id="list" resultMap="ListResultMap">
+  	SELECT 
+		pro.id,
+		pro.name,
+		pro.img_url,
+		pro.recommend,
+		pro.is_recommend,
+		(SELECT COUNT(*) FROM t_act_project_case AS pro_case WHERE pro_case.m_id=pro.id and pro_case.del_status ='0' ) AS caseNum,
+	    (SELECT COUNT(*) FROM t_act_project_order AS pro_cof WHERE pro_cof.m_id=pro.id and pro_cof.del_status ='0' ) AS orderNum,
+	    (SELECT COUNT(*) FROM t_act_project_config AS pro_con WHERE pro_con.m_id=pro.id) AS configNum
+	FROM t_act_project AS pro
+		where del_status ='0'
+		<if test=" typeId != null and typeId != '' ">
+		and  pro.type_id=#{typeId,jdbcType=VARCHAR}
+		</if>
+		ORDER BY pro.recommend desc,pro.create_time desc
+  </select>
+  
+
+  <select id="selectNumber" resultType="java.lang.Integer"   >
+    select  number from t_act_project
+    UNION
+    select  number from t_act_project_case
+    UNION
+    select   number from t_act_project_order
+  </select>
+  
+  
+  
+  <resultMap id="ListBasetMap" type="com.nbcedu.project.model.Project" >
+  	<result column="id" property="id" />
+  	<result column="name" property="name" />
+  	<result column="type_id" property="typeId"  />
+  	<result column="img_url" property="imgUrl" />
+  	<result column="class_id" property="classId"  />
+    <result column="grade_id" property="gradeId"  />
+  	<result column="des" property="des" />
+  	<result column="case_ids" property="caseIds" />
+  	<result column="case_images" property="caseImages" />
+  	<result column="case_names" property="caseNames" />
+  </resultMap>
+  <select id="selectSecondLevel" resultMap="ListBasetMap" parameterType="java.lang.String" >
+     SELECT id,
+            name,
+            type_id,
+            img_url,
+            des,
+            class_id,
+            grade_id,
+            t_new.case_ids,
+            t_new.case_images,
+            t_new.case_names
+     FROM t_act_project as pro 
+		LEFT JOIN 
+		(
+			SELECT 
+					m_id,
+					GROUP_CONCAT(id) as case_ids,
+					GROUP_CONCAT(img_url) as case_images,
+					GROUP_CONCAT(name) as case_names
+			FROM t_act_project_case pro_c  where pro_c.del_status='0'
+					GROUP BY m_id 
+		) as t_new
+	ON pro.id = t_new.m_id
+	where del_status ='0'
+	<if test="typeId != null and typeId != '' ">
+	  and pro.type_id = #{typeId,jdbcType=VARCHAR}
+	</if>
+	<if test="classId != null and classId != '' ">
+      and  pro.class_id like CONCAT('%',#{classId,jdbcType=VARCHAR},'%')
+    </if>
+    <if test="gradeId != null and gradeId != '' ">
+      and  pro.grade_id  like CONCAT('%',#{gradeId,jdbcType=VARCHAR},'%')
+    </if>
+    <if test=" name != null  and name != '' ">
+     and  pro.name like CONCAT('%',#{name,jdbcType=VARCHAR},'%')
+    </if>
+    ORDER BY pro.recommend desc ,pro.create_time desc
+    limit #{page},#{limit}
+  </select>
+
+</mapper>

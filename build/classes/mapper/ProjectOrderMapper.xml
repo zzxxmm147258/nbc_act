@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.nbcedu.project.dao.ProjectOrderMapper" >
+  <resultMap id="BaseResultMap" type="com.nbcedu.project.model.ProjectOrder" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="number" property="number" jdbcType="VARCHAR" />
+    <result column="m_id" property="mId" jdbcType="VARCHAR" />
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="config_id" property="configId" jdbcType="VARCHAR" />
+    <result column="total_price" property="totalPrice" jdbcType="DECIMAL" />
+    <result column="number_price" property="numberPrice" jdbcType="DECIMAL" />
+    <result column="escort_number" property="escortNumber" jdbcType="INTEGER" />
+    <result column="escort_total_price" property="escortTotalPrice" jdbcType="DECIMAL" />
+    <result column="escort_price" property="escortPrice" jdbcType="DECIMAL" />
+    <result column="total" property="total" jdbcType="DECIMAL" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="date_time" property="dateTime" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="del_status" property="delStatus" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="attr" property="attr" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_ms" property="createMs" jdbcType="BIGINT" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="update_ms" property="updateMs" jdbcType="BIGINT" />
+    
+    <result column="tName" property="tName" jdbcType="VARCHAR" />
+    <result column="pName" property="pName" jdbcType="VARCHAR" />
+    <result column="img_url" property="imgUrl" jdbcType="VARCHAR" />
+    <result column="uName" property="uName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id,number, m_id, user_id, num, config_id, total_price, number_price, escort_number, escort_total_price, 
+    escort_price, total, user_name, phone, date_time, status, del_status, sort, attr, 
+    create_time, create_ms, update_time, update_ms
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_act_project_order
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from t_act_project_order
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.nbcedu.project.model.ProjectOrder" >
+    insert into t_act_project_order (id,number, m_id, user_id, 
+      num, config_id, total_price, 
+      number_price, escort_number, escort_total_price, 
+      escort_price, total, user_name, 
+      phone, date_time, status, 
+      del_status, sort, attr, 
+      create_time, create_ms, update_time, 
+      update_ms)
+    values (#{id,jdbcType=VARCHAR},#{number,jdbcType=VARCHAR}, #{mId,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR}, 
+      #{num,jdbcType=INTEGER}, #{configId,jdbcType=VARCHAR}, #{totalPrice,jdbcType=DECIMAL}, 
+      #{numberPrice,jdbcType=DECIMAL}, #{escortNumber,jdbcType=INTEGER}, #{escortTotalPrice,jdbcType=DECIMAL}, 
+      #{escortPrice,jdbcType=DECIMAL}, #{total,jdbcType=DECIMAL}, #{userName,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{dateTime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR}, 
+      #{delStatus,jdbcType=VARCHAR}, #{sort,jdbcType=INTEGER}, #{attr,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createMs,jdbcType=BIGINT}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{updateMs,jdbcType=BIGINT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.nbcedu.project.model.ProjectOrder" >
+    insert into t_act_project_order
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="mId != null" >
+        m_id,
+      </if>
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="num != null" >
+        num,
+      </if>
+      <if test="configId != null" >
+        config_id,
+      </if>
+      <if test="totalPrice != null" >
+        total_price,
+      </if>
+      <if test="numberPrice != null" >
+        number_price,
+      </if>
+      <if test="escortNumber != null" >
+        escort_number,
+      </if>
+      <if test="escortTotalPrice != null" >
+        escort_total_price,
+      </if>
+      <if test="escortPrice != null" >
+        escort_price,
+      </if>
+      <if test="total != null" >
+        total,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="dateTime != null" >
+        date_time,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="delStatus != null" >
+        del_status,
+      </if>
+      <if test="sort != null" >
+        sort,
+      </if>
+      <if test="attr != null" >
+        attr,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createMs != null" >
+        create_ms,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+      <if test="updateMs != null" >
+        update_ms,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="number != null" >
+        #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="mId != null" >
+        #{mId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        #{num,jdbcType=INTEGER},
+      </if>
+      <if test="configId != null" >
+        #{configId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null" >
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="numberPrice != null" >
+        #{numberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="escortNumber != null" >
+        #{escortNumber,jdbcType=INTEGER},
+      </if>
+      <if test="escortTotalPrice != null" >
+        #{escortTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="escortPrice != null" >
+        #{escortPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="total != null" >
+        #{total,jdbcType=DECIMAL},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="dateTime != null" >
+        #{dateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="delStatus != null" >
+        #{delStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="attr != null" >
+        #{attr,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createMs != null" >
+        #{createMs,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateMs != null" >
+        #{updateMs,jdbcType=BIGINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.nbcedu.project.model.ProjectOrder" >
+    update t_act_project_order
+    <set >
+     <if test="number != null" >
+        number = #{number,jdbcType=VARCHAR},
+      </if>
+      <if test="mId != null" >
+        m_id = #{mId,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="num != null" >
+        num = #{num,jdbcType=INTEGER},
+      </if>
+      <if test="configId != null" >
+        config_id = #{configId,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null" >
+        total_price = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="numberPrice != null" >
+        number_price = #{numberPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="escortNumber != null" >
+        escort_number = #{escortNumber,jdbcType=INTEGER},
+      </if>
+      <if test="escortTotalPrice != null" >
+        escort_total_price = #{escortTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="escortPrice != null" >
+        escort_price = #{escortPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="total != null" >
+        total = #{total,jdbcType=DECIMAL},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="dateTime != null" >
+        date_time = #{dateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="delStatus != null" >
+        del_status = #{delStatus,jdbcType=VARCHAR},
+      </if>
+      <if test="sort != null" >
+        sort = #{sort,jdbcType=INTEGER},
+      </if>
+      <if test="attr != null" >
+        attr = #{attr,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createMs != null" >
+        create_ms = #{createMs,jdbcType=BIGINT},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateMs != null" >
+        update_ms = #{updateMs,jdbcType=BIGINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.nbcedu.project.model.ProjectOrder" >
+    update t_act_project_order
+    set number = #{number,jdbcType=VARCHAR},
+      m_id = #{mId,jdbcType=VARCHAR},
+      user_id = #{userId,jdbcType=VARCHAR},
+      num = #{num,jdbcType=INTEGER},
+      config_id = #{configId,jdbcType=VARCHAR},
+      total_price = #{totalPrice,jdbcType=DECIMAL},
+      number_price = #{numberPrice,jdbcType=DECIMAL},
+      escort_number = #{escortNumber,jdbcType=INTEGER},
+      escort_total_price = #{escortTotalPrice,jdbcType=DECIMAL},
+      escort_price = #{escortPrice,jdbcType=DECIMAL},
+      total = #{total,jdbcType=DECIMAL},
+      user_name = #{userName,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      date_time = #{dateTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=VARCHAR},
+      del_status = #{delStatus,jdbcType=VARCHAR},
+      sort = #{sort,jdbcType=INTEGER},
+      attr = #{attr,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_ms = #{createMs,jdbcType=BIGINT},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      update_ms = #{updateMs,jdbcType=BIGINT}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  
+   <select id="selectPage" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_act_project_order
+    where m_id = #{mId,jdbcType=VARCHAR}
+    and   del_status ='0'
+    limit #{page},#{limit}
+  </select>
+  
+  <select id="selectByCondition" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from t_act_project_order
+    where m_id = #{mId,jdbcType=VARCHAR}
+    and del_status ='0'
+  </select>
+  
+  <select id="selectByOrder" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    SELECT
+	o.id,
+	o.number,
+	o.m_id,
+	o.user_id,
+	o.num,
+	o.config_id,
+	o.total_price,
+	o.number_price,
+	o.escort_number,
+	o.escort_total_price,
+	o.escort_price,
+	o.total,
+	o.user_name,
+	o.phone,
+	o.date_time,
+	o.sort,
+	t.name tName,
+    p.name pName,
+    u.user_name uName
+    FROM
+	t_act_project_order o
+    LEFT JOIN t_act_project p ON p.id = o.m_id
+    LEFT JOIN t_act_project_type t ON t.id = p.type_id
+    LEFT JOIN t_act_user u ON o.user_id = u.id
+    where  o.del_status ='0'
+    <if test=" mId != null  and mId != '' ">
+     and  o.m_id= #{mId,jdbcType=VARCHAR}
+    </if>
+    <if test=" typeId != null  and typeId != '' ">
+    and  t.id=#{typeId,jdbcType=VARCHAR}
+    </if>
+    <if test=" name != null  and name != '' ">
+     and  p.name like CONCAT('%',#{name,jdbcType=VARCHAR},'%')
+    </if>
+    ORDER BY o.create_time desc
+  </select>
+  
+  <select id="selectByUserId" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    SELECT
+	o.id,
+	o.number,
+	o.m_id,
+	o.user_id,
+	o.num,
+	o.config_id,
+	o.total_price,
+	o.number_price,
+	o.escort_number,
+	o.escort_total_price,
+	o.escort_price,
+	o.total,
+	o.user_name,
+	o.phone,
+	o.date_time,
+	o.sort,
+	t.name tName,
+    p.name pName,
+    p.img_url img_url,
+    u.user_name uName
+    FROM
+	t_act_project_order o
+    LEFT JOIN t_act_project p ON p.id = o.m_id
+    LEFT JOIN t_act_project_type t ON t.id = p.type_id
+    LEFT JOIN t_act_user u ON o.user_id = u.id
+    where  o.del_status ='0'
+    and o.user_id=#{userId,jdbcType=VARCHAR}
+    <if test=" typeId != null  and typeId != '' ">
+    and  t.id=#{typeId,jdbcType=VARCHAR}
+    </if>
+    ORDER BY o.create_time desc
+    limit #{page},#{limit}
+  </select>
+  
+  <delete id="updateDelStatus" parameterType="java.lang.String" >
+    update t_act_project_order set del_status = '1'
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  
+</mapper>
